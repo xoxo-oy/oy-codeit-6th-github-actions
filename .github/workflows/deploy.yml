@@ -18,10 +18,10 @@ jobs:
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           port: 22
           script: |
-            cd ~/todo-api-deploy
+            cd /home/ec2-user/todo-api-deploy
             git pull origin main2
             npm install
             npm run build
             npm run prisma:deploy
-            pm2 reload todo-app-test
+            pm2 reload todo-app-test || pm2 start dist/main.js --name "todo-app-test"
             echo "Deployment successful!"
