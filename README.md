@@ -24,3 +24,5 @@ npm run prisma:seed
 ```
 npm run dev
 ```
+
+z
